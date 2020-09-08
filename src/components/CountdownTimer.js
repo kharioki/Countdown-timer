@@ -52,7 +52,6 @@ const CountdownTimer = () => {
       }
 
       if (timeElapsed === totalTime) {
-        setBlink(false);
         setTimeUp(true);
         setUpdate("Time's up!!!");
         setIsActive(false);
@@ -65,6 +64,7 @@ const CountdownTimer = () => {
       if (totalTime - timeElapsed <= 10) {
         setBlink(true);
       }
+
       interval = setInterval(() => {
         setTimeElapsed(prev => prev + 1);
       }, 1000 / activeSpeed);
@@ -79,13 +79,19 @@ const CountdownTimer = () => {
         start={start}
         isActive={isActive}
         setTotalTime={setTotalTime}
+        setTimeUp={setTimeUp}
+        timeUp={timeUp}
+        setTimeElapsed={setTimeElapsed}
+        setBlink={setBlink}
+        setAlmostOver={setAlmostOver}
+        setUpdate={setUpdate}
       />
       <p className="update">{update}</p>
       <div className="timer">
         <p
           className={`
       count-down
-      ${almostOver ? (blink ? 'blinking' : 'almost-over') : ''}
+      ${almostOver ? (blink && !timeUp ? 'blinking' : 'almost-over') : ''}
     `}
         >
           {minutes}:{seconds}

@@ -23,6 +23,15 @@ input {
   text-transform: uppercase;
 }
 
+.reset-button {
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+
 .update {
   font-size: 20px;
 }
