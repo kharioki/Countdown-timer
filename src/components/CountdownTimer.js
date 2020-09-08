@@ -74,7 +74,7 @@ const CountdownTimer = () => {
     return () => clearInterval(interval);
   }, [isActive, time, activeSpeed, totalTime, timeElapsed]);
   return (
-    <div>
+    <>
       <TimeInput
         start={start}
         isActive={isActive}
@@ -93,7 +93,7 @@ const CountdownTimer = () => {
         <Play onPause={pauseTimer} isActive={isActive} />
       </div>
       <SpeedControls updateSpeed={updateSpeed} activeSpeed={activeSpeed} />
-    </div>
+    </>
   );
 };
 
