@@ -1,38 +1,86 @@
 .App {
   text-align: center;
+  margin: auto;
+  padding: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+label {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  margin-right: 20px;
+  height: 30px;
+  padding: 0 20px 0 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.start-button {
+  color: white;
+  background-color: green;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+.update {
+  font-size: 20px;
+}
+
+.timer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.count-down {
+  font-size: 120px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 1opx;
+}
+
+.play-pause {
+  height: 50px;
+  margin-left: 20px;
+}
+
+.icon {
+  font-size: 50px;
+}
+
+.almost-over {
+  color: red;
+}
+
+.blinking {
+  color: red;
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+.speed-button {
+  border-width: 1px;
+  border-color: black;
+  background-color: white;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+.selected {
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+@keyframes blink-animation {
   to {
-    transform: rotate(360deg);
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
   }
 }
