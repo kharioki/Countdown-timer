@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TimeInput from './TimeInput';
 import { Play } from './Play';
+import SpeedControls from './SpeedControls';
 
 const CountdownTimer = () => {
   const [isActive, setIsActive] = useState(false);
@@ -31,6 +32,7 @@ const CountdownTimer = () => {
     if (isActive && totalTime > 0) {
       setIsActive(false);
     } else {
+      // resume
       start();
     }
   };
@@ -50,6 +52,7 @@ const CountdownTimer = () => {
       }
 
       if (timeElapsed === totalTime) {
+        setBlink(false);
         setTimeUp(true);
         setUpdate("Time's up!!!");
         setIsActive(false);
@@ -78,7 +81,6 @@ const CountdownTimer = () => {
         setTotalTime={setTotalTime}
       />
       <p className="update">{update}</p>
-
       <div className="timer">
         <p
           className={`
@@ -90,6 +92,7 @@ const CountdownTimer = () => {
         </p>
         <Play onPause={pauseTimer} isActive={isActive} />
       </div>
+      <SpeedControls updateSpeed={updateSpeed} activeSpeed={activeSpeed} />
     </div>
   );
 };
